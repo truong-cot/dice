@@ -1,3 +1,10 @@
+:root {
+  --width-container: 100px;
+  --width: 16px;
+  --width-transform: calc(var(--width) / 2);
+  --time-rotate: 2s;
+}
+
 body {
   perspective: 1000px;
   display: flex;
@@ -10,13 +17,52 @@ body {
   height: 100%;
 }
 
+.wrappper {
+  position: relative;
+  width: var(--width-container);
+  height: var(--width-container);
+  background-image: url("./asset/bg_mini.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.circle {
+  width: 98%;
+  height: 98%;
+  border-radius: 50%;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate var(--time-rotate) linear infinite;
+}
+
+.minigame {
+  position: absolute;
+  width: 100%;
+  top: 84%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.dice-container {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background-color: transparent;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .container {
-  width: 80px;
-  height: 80px;
+  width: var(--width);
+  height: var(--width);
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 400px;
+  perspective: 200px;
   perspective-origin: top right;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -24,8 +70,8 @@ body {
 
 .cube {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: var(--width);
+  height: var(--width);
   transform-style: preserve-3d;
   animation: cubeRotate 1.5s ease-in-out infinite forwards;
 }
@@ -38,50 +84,42 @@ body {
 }
 
 .front {
-  transform: translateZ(20px);
+  transform: translateZ(var(--width-transform));
 }
 
 .back {
-  transform: translateZ(-20px);
+  transform: translateZ(calc(var(--width-transform) * -1));
 }
 
 .left {
-  transform: rotateY(90deg) translateZ(20px);
+  transform: rotateY(90deg) translateZ(var(--width-transform));
 }
 
 .right {
-  transform: rotateY(-90deg) translateZ(20px);
+  transform: rotateY(-90deg) translateZ(var(--width-transform));
 }
 
 .top {
-  transform: rotateX(90deg) translateZ(20px);
+  transform: rotateX(90deg) translateZ(var(--width-transform));
 }
 
 .bottom {
-  transform: rotateX(-90deg) translateZ(20px);
-}
-
-.dice-container {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  position: relative;
-  overflow: hidden;
+  transform: rotateX(-90deg) translateZ(var(--width-transform));
 }
 
 #dice1 {
-  top: 40%;
-  left: 50%;
+  top: 20%;
+  left: 26%;
 }
 
 #dice2 {
   top: 20%;
-  left: 65%;
+  left: 76%;
 }
 
 #dice3 {
-  top: 20%;
-  left: 35%;
+  bottom: 12%;
+  left: 50%;
 }
 
 @keyframes cubeRotate {
@@ -90,5 +128,14 @@ body {
   }
   to {
     transform: rotateY(360deg) rotateX(0deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
