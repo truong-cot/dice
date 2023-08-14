@@ -1,6 +1,6 @@
 :root {
   --width-container: 100px;
-  --width: 14px;
+  --width: 15px;
   --width-transform: calc(var(--width) / 2);
   --time-rotate: 2s;
   --time-cobe-rotate: 1.5s;
