@@ -1,6 +1,6 @@
 :root {
   --width-container: 100px;
-  --width: 16px;
+  --width: 14px;
   --width-transform: calc(var(--width) / 2);
   --time-rotate: 2s;
   --time-cobe-rotate: 1.5s;
@@ -13,6 +13,7 @@ body {
   align-items: center;
   background-color: #333;
 }
+
 html,
 body {
   height: 100%;
@@ -22,17 +23,17 @@ body {
   position: relative;
   width: var(--width-container);
   height: var(--width-container);
-  background-image: url("./asset/bg_mini.png");
+  background-image: url("./asset/68_mini_bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .circle {
-  width: 98%;
-  height: 98%;
+  width: 80%;
+  height: 80%;
   border-radius: 50%;
   position: absolute;
-  top: 52%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: rotate var(--time-rotate) linear infinite;
@@ -41,7 +42,7 @@ body {
 .minigame {
   position: absolute;
   width: 100%;
-  top: 84%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -52,7 +53,7 @@ body {
   width: 60%;
   height: 60%;
   background-color: transparent;
-  top: 52%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -109,17 +110,17 @@ body {
 }
 
 #dice1 {
-  top: 20%;
+  top: 24%;
   left: 26%;
 }
 
 #dice2 {
-  top: 20%;
-  left: 76%;
+  top: 24%;
+  left: 74%;
 }
 
 #dice3 {
-  bottom: 12%;
+  bottom: 18%;
   left: 50%;
 }
 

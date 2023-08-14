@@ -1,0 +1,166 @@
+:root {
+  --width-container: 100px;
+  --width-star: 10px;
+  --width-ball: 14px;
+  --width-smoke: 16px;
+  --time-star: 2s;
+  --time-smoke: 0.6s;
+  --time-rotate: 1.8s;
+  --time-rotate-ball: 0.8s;
+  --time-jump-ball: 0.3s;
+  --time-image-zoom: 0.8s;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+html,
+body {
+  height: 100%;
+}
+
+.wrappper {
+  position: relative;
+  width: var(--width-container);
+  height: var(--width-container);
+  background-image: url("./asset/68_mini_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.logo {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.effect {
+  width: 64%;
+  height: 64%;
+  position: absolute;
+  top: 38%;
+  left: 51%;
+  animation: rotate var(--time-rotate) linear infinite;
+}
+
+.img-main {
+  width: 60%;
+  height: 60%;
+  position: absolute;
+  left: 20%;
+  animation: zoominoutsinglefeatured var(--time-image-zoom) linear infinite;
+}
+
+.ball {
+  width: var(--width-ball);
+  height: var(--width-ball);
+  position: absolute;
+  left: 50%;
+  animation: rotate var(--time-rotate-ball) linear infinite,
+    ball-jump var(--time-jump-ball) ease-in infinite alternate;
+}
+
+.smoke {
+  position: absolute;
+  width: var(--width-smoke);
+  height: var(--width-smoke);
+  animation: smoke var(--time-smoke) linear infinite alternate;
+  z-index: 10;
+}
+
+.minigame {
+  width: 100%;
+  height: 100%;
+}
+
+.group_star {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.star-1 {
+  left: 3px;
+}
+
+.star-2 {
+  right: 2px;
+}
+
+.star {
+  position: absolute;
+  bottom: 15px;
+  width: var(--width-star);
+  height: var(--width-star);
+  animation: zoom-in-zoom-out var(--time-star) ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ball-jump {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 6%;
+  }
+}
+
+@keyframes smoke {
+  from {
+    opacity: 0.8;
+    top: 24%;
+    left: 24%;
+    transform: rotate(20deg);
+  }
+  to {
+    top: 12%;
+    left: 12%;
+    opacity: 0.2;
+    transform: rotate(20deg);
+  }
+}
