@@ -11,11 +11,19 @@
   --time-image-zoom: 0.8s;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #333;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
