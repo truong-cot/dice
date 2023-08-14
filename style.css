@@ -3,6 +3,7 @@
   --width: 16px;
   --width-transform: calc(var(--width) / 2);
   --time-rotate: 2s;
+  --time-cobe-rotate: 1.5s;
 }
 
 body {
@@ -73,7 +74,7 @@ body {
   width: var(--width);
   height: var(--width);
   transform-style: preserve-3d;
-  animation: cubeRotate 1.5s ease-in-out infinite forwards;
+  animation: cubeRotate var(--time-cobe-rotate) ease-in-out infinite forwards;
 }
 
 .side {
