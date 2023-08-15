@@ -1,5 +1,5 @@
 :root {
-  --width-container: 100px;
+  --width-container: 70px;
   --width-star: 10px;
   --width-ball: 14px;
   --width-smoke: 16px;
@@ -95,20 +95,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
 .star-1 {
-  left: 3px;
+  left: 1px;
 }
 
 .star-2 {
-  right: 2px;
+  right: 1px;
 }
 
 .star {
   position: absolute;
-  bottom: 15px;
+  bottom: 44%;
   width: var(--width-star);
   height: var(--width-star);
   animation: zoom-in-zoom-out var(--time-star) ease infinite;
@@ -161,13 +161,13 @@ body {
 @keyframes smoke {
   from {
     opacity: 0.8;
-    transform: rotate(24deg);
-    top: 28px;
-    left: 18px;
+    transform: rotate(20deg);
+    top: 20px;
+    left: 10px;
   }
   to {
-    transform: rotate(24deg);
-    top: 12px;
-    left: 4px;
+    transform: rotate(20deg);
+    top: 8px;
+    left: 2px;
   }
 }
