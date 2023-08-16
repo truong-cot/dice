@@ -1,7 +1,9 @@
 :root {
-  --width-container: 100px;
-  --width: 15px;
+  --width-container: 90px;
+  --width: 12px;
   --width-transform: calc(var(--width) / 2);
+  --width-orbit: 12px;
+  --time-orbit: 1.4s;
   --time-rotate: 2s;
   --time-cobe-rotate: 1.5s;
 }
@@ -31,29 +33,28 @@ body {
   position: relative;
   width: var(--width-container);
   height: var(--width-container);
-  background-image: url("./asset/68_mini_bg.svg");
+  background-image: url("./asset/bg_1.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
-.circle {
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
+.effects {
+  width: 78%;
+  height: 78%;
   position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 9%;
+  top: 1%;
   animation: rotate var(--time-rotate) linear infinite;
 }
 
 .minigame {
-  position: absolute;
-  width: 100%;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 84%;
+  background-size: contain;
   z-index: 10;
+  position: absolute;
+  left: 49%;
+  bottom: 6%;
+  transform: translate(-50%, -50%);
 }
 
 .dice-container {
@@ -61,8 +62,8 @@ body {
   width: 60%;
   height: 60%;
   background-color: transparent;
-  top: 42%;
-  left: 50%;
+  top: 35%;
+  left: 49%;
   transform: translate(-50%, -50%);
 }
 
@@ -84,6 +85,24 @@ body {
   height: var(--width);
   transform-style: preserve-3d;
   animation: cubeRotate var(--time-cobe-rotate) ease-in-out infinite forwards;
+}
+
+#dice1 {
+  top: 20%;
+  left: 28%;
+  animation: orbit var(--time-orbit) ease-out infinite;
+}
+
+#dice2 {
+  top: 36%;
+  left: 60%;
+  animation: orbit var(--time-orbit) ease-out infinite;
+}
+
+#dice3 {
+  bottom: 20%;
+  left: 32%;
+  animation: orbit var(--time-orbit) ease-out infinite;
 }
 
 .side {
@@ -117,21 +136,6 @@ body {
   transform: rotateX(-90deg) translateZ(var(--width-transform));
 }
 
-#dice1 {
-  top: 24%;
-  left: 26%;
-}
-
-#dice2 {
-  top: 24%;
-  left: 74%;
-}
-
-#dice3 {
-  bottom: 18%;
-  left: 50%;
-}
-
 @keyframes cubeRotate {
   from {
     transform: rotateY(0deg) rotateX(720deg) rotateZ(0deg);
@@ -143,9 +147,18 @@ body {
 
 @keyframes rotate {
   from {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--width-orbit)) rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg) translateX(var(--width-orbit)) rotate(360deg);
   }
 }
