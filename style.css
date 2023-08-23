@@ -2,8 +2,9 @@
   --width-container: 90px;
   --width: 12px;
   --width-transform: calc(var(--width) / 2);
-  --width-orbit: 12px;
-  --time-orbit: 1.4s;
+  --width-orbit: 4px;
+  --height-orbit: 4px;
+  --time-orbit: 1.2s;
   --time-rotate: 2s;
   --time-cobe-rotate: 1.5s;
 }
@@ -90,19 +91,19 @@ body {
 #dice1 {
   top: 20%;
   left: 28%;
-  animation: orbit var(--time-orbit) ease-out infinite;
+  animation: forwardOrbit var(--time-orbit) ease-out infinite;
 }
 
 #dice2 {
   top: 36%;
   left: 60%;
-  animation: orbit var(--time-orbit) ease-out infinite;
+  animation: backwardOrbit var(--time-orbit) ease-out infinite;
 }
 
 #dice3 {
   bottom: 20%;
   left: 32%;
-  animation: orbit var(--time-orbit) ease-out infinite;
+  animation: oppositeOrbit var(--time-orbit) ease-out infinite;
 }
 
 .side {
@@ -154,11 +155,35 @@ body {
   }
 }
 
-@keyframes orbit {
+@keyframes forwardOrbit {
   from {
-    transform: rotate(0deg) translateX(var(--width-orbit)) rotate(0deg);
+    transform: rotate(0deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(0deg);
   }
   to {
-    transform: rotate(-360deg) translateX(var(--width-orbit)) rotate(360deg);
+    transform: rotate(-360deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(360deg);
+  }
+}
+
+@keyframes backwardOrbit {
+  from {
+    transform: rotate(360deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(0deg);
+  }
+}
+
+@keyframes oppositeOrbit {
+  from {
+    transform: rotate(0deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg) translateX(var(--width-orbit))
+      translateY(var(--height-orbit)) rotate(360deg);
   }
 }
